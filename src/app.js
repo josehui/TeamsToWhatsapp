@@ -1,7 +1,11 @@
 'use strict';
 
 var express = require('express');
+const bodyParser = require('body-parser');
+
 var app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Adding tabs to our app. This will setup routes to various views
 var tabs = require('./tabs');
@@ -22,3 +26,4 @@ var port = process.env.PORT || 3333;
 app.listen(port, function() {
     console.log(`App started listening on port ${port}`);
 });
+
